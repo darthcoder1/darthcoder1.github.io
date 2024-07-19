@@ -1,0 +1,10 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'alternative engineering'
+theme = "m10c"
+author = "Martin Zielinski"
+
+[[params.social]]
+  icon = "github"
+  name = "My Github"
+  url = "https://github.com/darthcoder1"
