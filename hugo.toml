@@ -5,34 +5,47 @@ theme = "m10c"
 
 [params]
 author = "Martin Zielinski"
-description = "Private blog about engineering and other ramblings"
+description = "Private blog about software engineering, game development, the tech industry overall and other random stuff I care about."
+avatar = "avatar.jpeg"
 
-    [params.contact]
-    author = "Martin Zielinski"
-    email = "info@example.org"
+[params.contact]
+author = "Martin Zielinski"
+email = "info@example.org"
 
-    [[params.social]]
-    icon = "github"
-    name = "My Github"
-    url = "https://github.com/darthcoder1"
 
-    [[params.social]]
-    icon = "mastodon"
-    name = "Mastodon"
-    url = "https://mastodon.gamedev.place/@darthcoder1"
+
+[[params.social]]
+icon = "masto"
+name = "Mastodon"
+url = "https://mastodon.gamedev.place/@darthcoder1"
+
+[[params.social]]
+icon = "twitter"
+name = "Twitter"
+url = "https://x.com/DarthCoder"
+
+[[params.social]]
+icon = "linkedin"
+name = "LinkedIn"
+url = "https://www.linkedin.com/in/martin-zielinski/"
+
+[[params.social]]
+icon = "github"
+name = "My Github"
+url = "https://github.com/darthcoder1"
 
 [markup]
-  [markup.highlight]
-    anchorLineNos = false
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = ''
-    hl_inline = false
-    lineAnchors = ''
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
-    noHl = false
-    style = 'monokai'
-    tabWidth = 4
+[markup.highlight]
+anchorLineNos = false
+codeFences = true
+guessSyntax = false
+hl_Lines = ''
+hl_inline = false
+lineAnchors = ''
+lineNoStart = 1
+lineNos = false
+lineNumbersInTable = true
+noClasses = true
+noHl = false
+style = 'monokai'
+tabWidth = 4

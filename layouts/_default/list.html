@@ -6,14 +6,6 @@
       {{ range where .Paginator.Pages "Type" "!=" "page" }}
         <li class="posts-list-item">
           <a class="posts-list-item-title" href="{{ .Permalink }}">{{ .Title }}</a>
-          <blockquote>
-            <div class="summary">
-              {{ .Summary }}
-              {{ if .Truncated }}
-                <a href="{{ .RelPermalink }}">More ...</a>
-              {{ end }}
-            </div>
-        </blockquote>
           <span class="posts-list-item-description">
             {{ partial "icon.html" (dict "ctx" $ "name" "calendar") }}
             {{ .PublishDate.Format "Jan 2, 2006" }}
@@ -21,6 +13,15 @@
             {{ partial "icon.html" (dict "ctx" $ "name" "clock") }}
             {{ .ReadingTime }} min read
           </span>
+          <blockquote>
+            <div class="summary">
+              {{ .Summary }}
+              {{ if .Truncated }}
+                <a href="{{ .RelPermalink }}">More ...</a>
+              {{ end }}
+            </div>
+          </blockquote>
+          
         </li>
       {{ end }}
     </ul>
