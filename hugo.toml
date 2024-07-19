@@ -1,10 +1,22 @@
-baseURL = 'https://example.org/'
+baseURL = "https://blog.alt-engineering.com/"
 languageCode = 'en-us'
 title = 'alternative engineering'
 theme = "m10c"
-author = "Martin Zielinski"
 
-[[params.social]]
-  icon = "github"
-  name = "My Github"
-  url = "https://github.com/darthcoder1"
+[params]
+author = "Martin Zielinski"
+description = "Private blog about engineering and other ramblings"
+
+    [params.contact]
+    author = "Martin Zielinski"
+    email = "info@example.org"
+
+    [[params.social]]
+    icon = "github"
+    name = "My Github"
+    url = "https://github.com/darthcoder1"
+
+    [[params.social]]
+    icon = "mastodon"
+    name = "Mastodon"
+    url = "https://mastodon.gamedev.place/@darthcoder1"
