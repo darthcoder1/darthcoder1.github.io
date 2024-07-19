@@ -1,7 +1,7 @@
 +++
 title = 'Debugging Techniques for Optimized PPC Builds'
 date = 2011-07-26T13:36:15+02:00
-draft = true
+draft = false
 +++
 
 # Debugging techniques for optimized PPC builds

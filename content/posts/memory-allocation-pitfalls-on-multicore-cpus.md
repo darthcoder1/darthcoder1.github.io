@@ -1,7 +1,7 @@
 +++
 title = 'Memory Allocation Pitfalls on Multicore CPUs'
 date = 2011-09-12T15:09:46+02:00
-draft = true
+draft = false
 +++
 
 # Memory allocation pitfalls on multi-core CPUs

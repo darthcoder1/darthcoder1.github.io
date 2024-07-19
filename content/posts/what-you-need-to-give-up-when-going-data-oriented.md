@@ -1,7 +1,7 @@
 +++
 title = 'What You Need to Give Up When Going Data Oriented'
 date = 2011-08-10T14:56:58+02:00
-draft = true
+draft = false
 +++
 
 # 'What You Need to Give Up When Going Data Oriented

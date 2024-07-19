@@ -1,7 +1,7 @@
 +++
 title = 'Who Killed Anti Portals'
 date = 2011-09-12T15:06:00+02:00
-draft = true
+draft = false
 +++
 
 # Who killed Anti-Portals

@@ -1,7 +1,7 @@
 +++
 title = 'Git Stuff'
 date = 2011-07-08T13:08:46+02:00
-draft = true
+draft = false
 +++
 
 # Git Stuff

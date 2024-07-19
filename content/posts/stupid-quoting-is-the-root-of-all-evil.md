@@ -1,7 +1,7 @@
 +++
 title = 'Stupid Quoting Is the Root of All Evil'
 date = 2011-07-15T13:25:51+02:00
-draft = true
+draft = false
 +++
 
 # Stupid Quoting is the root of all evil
