@@ -1,5 +1,5 @@
 +++
-title = 'Debugging Techniques for Optimized Ppc Builds'
+title = 'Debugging Techniques for Optimized PPC Builds'
 date = 2011-07-26T13:36:15+02:00
 draft = true
 +++
