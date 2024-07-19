@@ -14,6 +14,8 @@ true to the original post, I have not modified anything. Don't blame me, blame p
 
 If I would have received a beer for every time I hear (or read) someone quoting Knuth’s “Premature optimization is the root of all evil”, I would have long ago died with cirrhosis of the liver … twice.
 
+<!--more-->
+
 ### Why does this quote drive me so mad?
 
 First of all, no one I have ever met, who was using this quote to back up his stupid point has even read the paper this quote originates from.

@@ -15,6 +15,8 @@ true to the original post, I have not modified anything. Don't blame me, blame p
 Although it is less and less common nowadays, there are still “Thread-Safe Memory Allocators” in use. What do I mean with this? A standard, single-core based allocator that uses a simple locking mechanism on top to avoid race-conditions.
 I am usually a big fan of “The simplest solution”(tm), but this one unfortunately leads to two big problems on multi-core architectures and therefore doesn’t really qualify as a ‘solution’ at all.
 
+<!--more-->
+
 ### Thread contention
 
 I think it is pretty obvious that thread contention is bound to happen. When one thread is accessing the allocator ( allocating or releasing memory ) all other threads that are trying to do the same are blocked. It does not matter how fast the allocator is, as it will never be fast enough to not introduce contention and block other threads. This issue has an impact on performance especially in standard high-level gameplay code. As high-level gameplay code tend to use the allocator a lot ( creating/destroying objects, growing/shrinking dynamic arrays, etc. ) this is a recipe for just throwing away clock-cycles. For no gain at all. I am not talking about a few nano-seconds here as depending on the amount of runtime allocations, this can sum up faster than one might expect.

@@ -18,6 +18,8 @@ But it is not that bad as some people might think. In the beginning it takes som
 
 This article is mostly aimed at programmers not that familiar with the lower level concepts and should help them to get the most information without the need of reading assembly.
 
+<!--more-->
+
 ### Problems of optimized builds
 
 1. The source code does not represent exactly the instructions that are executed

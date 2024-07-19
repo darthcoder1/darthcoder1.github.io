@@ -21,6 +21,8 @@ I also do.
 
 But there is a serious problem which is often overlooked when we talk about ‘throwing away’ and starting from scratch.
 
+<!--more-->
+
 ### Where is this messy code coming from?
 
 Code does not get ‘messy’ and war-torn by itself. It is also – normally – not the fault of some stupid programmer who has no clue what he is doing. I admit, this might happen from time to time, but I have never worked with anybody who could be attributed like that.

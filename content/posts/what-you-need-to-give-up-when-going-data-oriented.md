@@ -31,6 +31,8 @@ I think this list should cover most of the claimed benefits:
 
 Let’s go through this list and take a look what we really need to sacrifice.
 
+<!--more-->
+
 ### Encapsulation:
 
 Hiding of implementation specific data and functionality. This is something you should aim for in any programming paradigm, no matter if you call it OOP, DOD or ADHS. This is definitely nothing you should give up. And you don’t need to. To claim that encapsulation is only working with OOP is just plainly wrong, as this has been done in C since the dawn of time. So, apparently this still applies to DOD and is nothing you need to give up.

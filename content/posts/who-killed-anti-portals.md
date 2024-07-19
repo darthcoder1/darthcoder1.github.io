@@ -15,6 +15,8 @@ true to the original post, I have not modified anything. Don't blame me, blame p
 Yesterday, I had a small chat with a former coworker that threw me back in time. It was about Anti-Portals.
 Yeah, I know, you heard that term back in the days, but as it is so long ago ….
 
+<!--more-->
+
 ### ... a small reminder what the hell an Anti-Portal is
 
 An Anti-Portal is just a plane placed in the world, which shows you that everything behind this plane is not visible. To make use of it, you need to generate a plane that goes through the player’s point of view for every edge of the portal. You end up with a frustum that allows you to easily check if an object or scene-partitioning node is occluded or not. Normal Portals are working exactly the same, but they define the visible area instead of the occluded. They were used for doorways and such.
