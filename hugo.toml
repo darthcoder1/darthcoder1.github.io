@@ -5,8 +5,7 @@ theme = "m10c"
 
 [params]
 author = "Martin Zielinski"
-description = "Private blog about software engineering, game development, the tech industry overall and other random stuff I care about."
-avatar = "avatar.jpeg"
+description = "Personal blog about software engineering, game development, the tech industry and other random stuff I care about."
 
 [params.contact]
 author = "Martin Zielinski"
@@ -36,6 +35,13 @@ url = "https://www.linkedin.com/in/martin-zielinski/"
 icon = "github"
 name = "Github"
 url = "https://github.com/darthcoder1"
+
+[params.style]
+  darkestColor = "#242930"
+  darkColor = "#353b43"
+  lightColor = "#afbac4"
+  lightestColor = "#ffffff"
+  primaryColor = "#57cc8a"
 
 [markup]
 [markup.highlight]

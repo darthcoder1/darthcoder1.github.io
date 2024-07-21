@@ -7,7 +7,7 @@ draft = false
 # Debugging techniques for optimized PPC builds
 
 ```
-This has been originally posted ages ago in an old private blog of mine and has been imported here.
+This has been originally posted on an old personal blog of mine and has been imported here.
 I might not be proud about some of the formulations and use of swear words and slurs but to keep this
 true to the original post, I have not modified anything. Don't blame me, blame past Martin. :)
 ```
