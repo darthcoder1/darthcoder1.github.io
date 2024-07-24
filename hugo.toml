@@ -3,6 +3,24 @@ languageCode = 'en-us'
 title = 'alternative engineering'
 theme = "m10c"
 
+[[menu.main]]
+identifier = "posts"
+name = "Posts"
+url = "/posts/"
+weight = 1
+
+#[[menu.main]]
+#  identifier = "portfolio"
+#  name = "Portfolio"
+#  url = "/portfolio/"
+#  weight = 5
+
+[[menu.main]]
+identifier = "about"
+name = "About"
+url = "/about/"
+weight = 10
+
 [params]
 author = "Martin Zielinski"
 description = "Personal blog about software engineering, game development, the tech industry and other random stuff I care about."
@@ -37,11 +55,11 @@ name = "Github"
 url = "https://github.com/darthcoder1"
 
 [params.style]
-  darkestColor = "#242930"
-  darkColor = "#353b43"
-  lightColor = "#afbac4"
-  lightestColor = "#ffffff"
-  primaryColor = "#57cc8a"
+darkestColor = "#242930"
+darkColor = "#353b43"
+lightColor = "#afbac4"
+lightestColor = "#ffffff"
+primaryColor = "#57cc8a"
 
 [markup]
 [markup.highlight]
@@ -58,3 +76,10 @@ noClasses = true
 noHl = false
 style = 'monokai'
 tabWidth = 4
+[markup.goldmark]
+[markup.goldmark.parser]
+wrapStandAloneImageWithinParagraph = false
+[markup.goldmark.parser.attribute]
+block = true
+[markup.goldmark.renderer]
+unsafe = true
