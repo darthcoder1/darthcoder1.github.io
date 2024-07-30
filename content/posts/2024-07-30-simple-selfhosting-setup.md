@@ -53,4 +53,4 @@ When preparing the docker compose files, I make sure that all data is stored wit
         docker-compose.yml
 ```
 
-Now the management of the server becomes as easy as invocations of docker commands. Starting, stopping and updating services is straightforward and simple. Removing a services leaves no residue which might have effects on stability. As everything ist just off the shelve docker, I could also use some management frontend quite easily. But I actually prefer working with an IDE and the terminal.
+Now the management of the server becomes as easy as invocations of docker commands. Starting, stopping and updating services is straightforward and simple. Removing a services leaves no residue which might have effects on stability. In order to back up the server, I just need to backup `/opt/my-selfhosting-setup` and everything is covered. As all of this just uses off-the-shelve docker, I could also use some management frontend quite easily. But I actually prefer working with an IDE and the terminal, so don't see me playing with that anytime soon.
