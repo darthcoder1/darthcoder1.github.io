@@ -4,7 +4,7 @@ I am Martin Zielinski, software engineer and tech enthusiast. For more than 20 y
 
 ## Game Development Projects
 
-This is a list of (shipped) projects I've worked on
+These are some of the projects I've worked on:
 
 - [Unity Engine](https://unity.com) (as Core Foundation R&D @ [Unity](https://unity.com))
 - [Dead Island 2](https://deadisland.com) (as Principle Software Engineer @ [Yager Development](https://yager.de))
