@@ -1,0 +1,43 @@
+on: [push]
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.131.0
+      BASE_URL: blog.alt-engineering.com
+    steps:
+      - name: Prepare repositories
+        run: |
+          apt update
+          apt-get install apt-transport-https
+          # GPG key and repository for dart
+          wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg  --dearmor -o /usr/share/keyrings/dart.gpg
+          echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main' | tee /etc/apt/sources.list.d/dart_stable.list
+          apt update
+      - name: Install Hugo CLI
+        run: apt install -y hugo
+      #- name: Install Dart Sass
+      #  run: |
+      #    wget -O ${{ runner.temp }}/dart-sass.tar.gz https://github.com/sass/dart-sass/releases/download/1.77.8/dart-sass-1.77.8-linux-x64.tar.gz
+      #    tar -xvf ${{ runner.temp }}/dart-sass.tar.gz
+      #    cp dart-sass/sass /usr/bin/sass
+      #    chmod +x /usr/bin/sass
+      - name: verify hugo
+        run: hugo version
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Build with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+          TZ: Europe/Berlin
+        run: |
+          ls -la
+          hugo \
+            --config hugo.toml \
+            --gc \
+            --baseURL "${BASE_URL}"
