@@ -41,3 +41,7 @@ jobs:
             --config hugo.toml \
             --gc \
             --baseURL "${BASE_URL}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: public-www
+          path: public/
