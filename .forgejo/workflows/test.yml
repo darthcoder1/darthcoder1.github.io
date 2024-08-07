@@ -1,0 +1,16 @@
+on: [push]
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.131.0
+      BASE_URL: blog.alt-engineering.com
+    steps:
+      - name: Prepare repositories
+        run: echo "Step 1"
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
