@@ -53,17 +53,14 @@ jobs:
         run: |
           ls -la
           tar xzvf ./public-www.tar.gz
-      - name: Deploy to VPS via rsync
-        env:
-          RSYNC_TARGET: /opt/www/${{env.BASE_URL}}
-          RSYNC_SOURCE: ./public
+      - name: Setup deploy ssh key
         run: |
-          ls -la ~/.ssh
           mkdir -p ~/.ssh/
           echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa
           chmod 400  ~/.ssh/id_rsa
-
-          ssh -i  ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{secrets.SSH_USER_NAME}}@${{secrets.SSH_HOST_NAME}} ls -la
-
+      - name: Deploy via rsync
+        env:
+          RSYNC_TARGET: /opt/www/${{env.BASE_URL}}/
+          RSYNC_SOURCE: ./public/*
+        run: |
           rsync -avzr --delete -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" $RSYNC_SOURCE ${{secrets.SSH_USER_NAME}}@${{secrets.SSH_HOST_NAME}}:$RSYNC_TARGET
-          rm  ~/.ssh/id_rsa
