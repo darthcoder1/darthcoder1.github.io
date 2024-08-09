@@ -62,6 +62,10 @@ jobs:
           SSH_HOSTNAME: ${{secrets.SSH_HOST_NAME}}
         run: |
           echo $SSH_PRIVATE_KEY > .deploy_id_rsa
+          echo $SSH_USERNAME
+          echo $SSH_HOSTNAME
+          echo ${{secrets.SSH_USER_NAME}}
+          ls -la
           ssh -i .deploy_id_rsa $SSH_USERNAME@$SSH_HOSTNAME:$RSYNC_TARGET ls -la 
           rsync -avzr --delete -e "ssh -i .deploy_id_rsa" $RSYNC_SOURCE $SSH_USERNAME@$SSH_HOSTNAME:$RSYNC_TARGET
           rm .deploy_id_rsa
