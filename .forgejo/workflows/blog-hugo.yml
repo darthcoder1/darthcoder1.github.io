@@ -44,19 +44,19 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: public-www.tar.gz
-          path: ./public-www.tar.gz
+          path: ./
       - name: Uncompress
-        run: tar xzvf ./public-www.tar.gz
+        run: |
+          unzip ./public-www.tar.gz.zip
+          tar xzvf ./public-www.tar.gz
       - name: Deploy to VPS via rsync
-        with:
-          RSYNC_OPTIONS: -avzr --delete
+        env:
           RSYNC_TARGET: /opt/www/${{env.BASE_URL}}/
           RSYNC_SOURCE: ./public
-        env:
           SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
           SSH_USERNAME: ${{secrets.SSH_USER_NAME}}
           SSH_HOSTNAME: ${{secrets.SSH_HOST_NAME}}
         run: |
-          echo $SSH_PRIVATE_KEY > deploy_id_rsa
-          rsync -avzr --delete -e "ssh -i ./deploy_id_rsa" ./public $SSH_USERNAME@$SSH_HOSTNAME:/opt/www/$BASE_URL
-          rm ./deploy_id_rsa
+          echo $SSH_PRIVATE_KEY > .deploy_id_rsa
+          rsync -avzr --delete -e "ssh -i ./.deploy_id_rsa" $RSYNC_SOURCE $SSH_USERNAME@$SSH_HOSTNAME:$RSYNC_TARGET
+          rm ./.deploy_id_rsa
