@@ -7,24 +7,11 @@ jobs:
       HUGO_VERSION: 0.131.0
       BASE_URL: blog.alt-engineering.com
     steps:
-      - name: Prepare repositories
-        run: |
-          apt update
-          apt-get install apt-transport-https
-          # GPG key and repository for dart
-          wget -qO- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg  --dearmor -o /usr/share/keyrings/dart.gpg
-          echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main' | tee /etc/apt/sources.list.d/dart_stable.list
-          apt update
-      - name: Install Hugo CLI
-        run: apt install -y hugo
-      #- name: Install Dart Sass
-      #  run: |
-      #    wget -O ${{ runner.temp }}/dart-sass.tar.gz https://github.com/sass/dart-sass/releases/download/1.77.8/dart-sass-1.77.8-linux-x64.tar.gz
-      #    tar -xvf ${{ runner.temp }}/dart-sass.tar.gz
-      #    cp dart-sass/sass /usr/bin/sass
-      #    chmod +x /usr/bin/sass
-      - name: verify hugo
-        run: hugo version
+      - name: Setup Hugo
+        uses: https://github.com/peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "latest"
+          extended: true
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -40,11 +27,33 @@ jobs:
           hugo \
             --config hugo.toml \
             --gc \
+            --minify \
             --baseURL "${BASE_URL}"
           # compress artifact
           tar cfz public-www.tar.gz ./public
-
       - uses: actions/upload-artifact@v3
         with:
           name: public-www.tar.gz
           path: ./public-www.tar.gz
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build]
+    env:
+      BASE_URL: blog.alt-engineering.com
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: public-www.tar.gz
+          path: ./public-www.tar.gz
+      - name: Uncompress
+        run: tar xzvf ./public-www.tar.gz
+      - name: Deploy to sandbox via rsync
+        uses: trendyminds/github-actions-rsync@master
+        with:
+          RSYNC_OPTIONS: -avzr --delete
+          RSYNC_TARGET: /opt/www/${{env.BASE_URL}}/
+          RSYNC_SOURCE: ./public
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          SSH_USERNAME: ${{secrets.SSH_USER_NAME}}
+          SSH_HOSTNAME: ${{secrets.SSH_HOST_NAME}}
