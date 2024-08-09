@@ -58,8 +58,12 @@ jobs:
           RSYNC_TARGET: /opt/www/${{env.BASE_URL}}/
           RSYNC_SOURCE: ./public
         run: |
-          echo "${{secrets.SSH_PRIVATE_KEY}}" > .deploy_id_rsa
-          chmod 400 .deploy_id_rsa
-          ls -la
-          rsync -avzr --delete -e "ssh -i .deploy_id_rsa" $RSYNC_SOURCE ${{secrets.SSH_USER_NAME}}@${{secrets.SSH_HOST_NAME}}:$RSYNC_TARGET
-          rm .deploy_id_rsa
+          ls -la ~/.ssh
+          mkdir -p ~/.ssh/
+          echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa
+          chmod 400  ~/.ssh/id_rsa
+
+          ssh -i  ~/.ssh/id_rsa ${{secrets.SSH_USER_NAME}}@${{secrets.SSH_HOST_NAME}} ls -la
+
+          rsync -avzr --delete -e "ssh -i  ~/.ssh/id_rsa" $RSYNC_SOURCE ${{secrets.SSH_USER_NAME}}@${{secrets.SSH_HOST_NAME}}:$RSYNC_TARGET
+          rm  ~/.ssh/id_rsa
