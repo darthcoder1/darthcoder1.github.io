@@ -63,7 +63,7 @@ jobs:
           echo "${{secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_rsa
           chmod 400  ~/.ssh/id_rsa
 
-          ssh -i  ~/.ssh/id_rsa ${{secrets.SSH_USER_NAME}}@${{secrets.SSH_HOST_NAME}} ls -la
+          ssh -i  ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{secrets.SSH_USER_NAME}}@${{secrets.SSH_HOST_NAME}} ls -la
 
-          rsync -avzr --delete -e "ssh -i  ~/.ssh/id_rsa" $RSYNC_SOURCE ${{secrets.SSH_USER_NAME}}@${{secrets.SSH_HOST_NAME}}:$RSYNC_TARGET
+          rsync -avzr --delete -e "ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no" $RSYNC_SOURCE ${{secrets.SSH_USER_NAME}}@${{secrets.SSH_HOST_NAME}}:$RSYNC_TARGET
           rm  ~/.ssh/id_rsa
