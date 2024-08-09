@@ -41,6 +41,10 @@ jobs:
     env:
       BASE_URL: blog.alt-engineering.com
     steps:
+      - name: Install rsync
+        run: |
+          apt-get update
+          apt-get install -y rsync
       - uses: actions/download-artifact@v3
         with:
           name: public-www.tar.gz
