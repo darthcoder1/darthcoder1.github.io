@@ -55,7 +55,7 @@ jobs:
           tar xzvf ./public-www.tar.gz
       - name: Deploy to VPS via rsync
         env:
-          RSYNC_TARGET: /opt/www/${{env.BASE_URL}}/
+          RSYNC_TARGET: /opt/www/${{env.BASE_URL}}
           RSYNC_SOURCE: ./public
         run: |
           ls -la ~/.ssh
