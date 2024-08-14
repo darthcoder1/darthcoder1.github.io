@@ -1,7 +1,7 @@
 +++
 title = 'Building an Amazing Team Culture'
 date = 2024-08-14T15:55:32+02:00
-draft = true
+draft = false
 +++
 
 # Building an Amazing Team Culture
