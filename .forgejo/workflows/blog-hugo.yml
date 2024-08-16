@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.131.0
-      BASE_URL: www.alt-engineering.com
+      BASE_URL: https://www.alt-engineering.com
     steps:
       - name: Setup Hugo
         uses: https://github.com/peaceiris/actions-hugo@v2
