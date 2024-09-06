@@ -21,7 +21,7 @@
   </head>
   <body>
     <header class="app-header">
-      <span class="app-header-title">{{ .Site.Title }}</span>
+      <span class="app-header-title"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></span>
       {{- with .Site.Menus.main }}
       <nav class="app-header-menu">
         {{- range $key, $item := . }}
@@ -42,6 +42,7 @@
         {{ end }}
       </div>
       {{- end }}
+      <p>{{ .Site.Params.sidepane_description | .RenderString }}</p>
     </header>
     <main class="app-container">
       {{ block "main" . }}
