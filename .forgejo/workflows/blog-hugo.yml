@@ -27,8 +27,7 @@ jobs:
           hugo \
             --config hugo.toml \
             --gc \
-            --minify \
-            --baseURL "${BASE_URL}"
+            --minify
           # compress artifact
           tar cfz public-www.tar.gz ./public
       - uses: actions/upload-artifact@v3

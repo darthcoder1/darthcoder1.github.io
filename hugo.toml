@@ -1,4 +1,4 @@
-baseURL = "https://blog.alt-engineering.com/"
+baseURL = "https://www.alt-engineering.com/"
 languageCode = 'en-us'
 title = 'alternative engineering'
 theme = "m10c"
@@ -24,6 +24,7 @@ weight = 10
 [params]
 author = "Martin Zielinski"
 description = "Personal blog about software engineering, game development, the tech industry and other random stuff I care about."
+sidepane_description = ""
 
 [params.contact]
 author = "Martin Zielinski"
