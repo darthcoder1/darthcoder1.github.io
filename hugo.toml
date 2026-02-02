@@ -1,4 +1,4 @@
-baseURL = "https://www.alt-engineering.com/"
+baseURL = "https://blog.alt-engineering.com/"
 languageCode = 'en-us'
 title = 'alternative engineering'
 theme = "m10c"
